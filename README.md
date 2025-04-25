@@ -35,7 +35,7 @@ class ChatMessage(BaseModel):
 async def handle_chat(websocket: WebSocket, payload: ChatMessage):
     await websocket.send_json({
         "type": "chat",
-        "payload": {"message": f"Received: {payload.message}"}
+        "payload": {"message": f"Received: {payload.message}", "room_id": "example_id"}
     })
 
 # Register the outgoing chat messages
